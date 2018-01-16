@@ -1,0 +1,42 @@
+extends:
+  - airbnb
+  - plugin:flowtype/recommended
+
+plugins:
+  - flowtype
+
+parserOptions:
+  ecmaVersion: 8
+  sourceType: script
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+
+rules:
+
+  semi:
+    - error
+    - never
+
+  object-curly-newline:
+    - error
+    - consistent: true
+
+  flowtype/boolean-style:
+    - error
+    - bool
+
+  flowtype/delimiter-dangle:
+    - error
+    - always-multiline
+
+  flowtype/generic-spacing:
+    - error
+    - never
+
+  flowtype/semi:
+    - error
+    - never
+
+  flowtype/type-id-match:
+    - error
+    - ^[A-Z][a-z0-9]*
