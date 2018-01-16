@@ -1,0 +1,13 @@
+{
+  "name": "chatfuel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Test task for Chatfuel",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "repository": "git@github.com:bigslycat/chatfuel.git",
+  "author": "Pavel Tereschenko <me@stupidcat.wtf>",
+  "license": "INLICENSED"
+}
