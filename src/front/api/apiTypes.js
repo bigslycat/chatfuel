@@ -6,3 +6,8 @@ type APIResponse<T> = {
   previousPageUrl?: string,
 }
 
+type User = {
+  id: string,
+  name: string,
+  avatarUrl: string,
+}
