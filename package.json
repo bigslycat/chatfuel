@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "description": "Test task for Chatfuel",
+  "scripts": {
+    "lint": "eslint .",
+    "flow": "flow",
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "webpack-dev-server --open-page ."
+  },
   "dependencies": {
     "material-ui": "^1.0.0-beta.29",
     "ramda": "^0.25.0",
