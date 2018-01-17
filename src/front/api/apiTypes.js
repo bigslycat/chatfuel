@@ -1,12 +1,12 @@
 /* @flow */
 
-type APIResponse<T> = {
+export type APIResponse<T> = {
   result: T,
   nextPageUrl?: string,
   previousPageUrl?: string,
 }
 
-type User = {
+export type User = {
   id: string,
   name: string,
   avatarUrl: string,
