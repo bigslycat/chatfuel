@@ -7,7 +7,11 @@ export type APIResponse<T> = {
 }
 
 export type User = {
-  id: string,
-  name: string,
-  avatarUrl: string,
+  id: UserId,
+  name: UserName,
+  avatarUrl: UserAvatarUrl,
 }
+
+export opaque type UserId: string = string
+export opaque type UserName: string = string
+export opaque type UserAvatarUrl: string = string
