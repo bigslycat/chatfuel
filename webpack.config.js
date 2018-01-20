@@ -11,7 +11,8 @@ const {
   setContext,
   setDevTool,
 
-  css,
+  file,
+  match,
   uglify,
   devServer,
 } = require('webpack-blocks')
@@ -35,7 +36,9 @@ module.exports = createConfig([
 
   setDevTool('source-map'),
 
-  css(),
+  match(['*.svg'], [
+    file(),
+  ]),
 
   babelPreset({
     test: /\.js$/,
