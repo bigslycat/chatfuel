@@ -1,4 +1,9 @@
 extends: ../../.eslintrc.yml
 
+env:
+  node: false
+  commonjs: true
+  browser: true
+
 parserOptions:
   sourceType: module

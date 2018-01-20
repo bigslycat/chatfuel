@@ -21,6 +21,19 @@ rules:
     - error
     - consistent: true
 
+  jsx-quotes:
+    - error
+    - prefer-single
+
+  import/prefer-default-export: off
+
+  jsx-a11y/alt-text: off
+
+  react/jsx-filename-extension:
+    - error
+    - extensions:
+      - .js
+
   flowtype/boolean-style:
     - error
     - bool
