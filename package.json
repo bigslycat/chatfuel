@@ -10,6 +10,7 @@
     "start": "webpack-dev-server --open-page ."
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "material-ui": "^1.0.0-beta.29",
     "ramda": "^0.25.0",
     "react": "^16.2.0",
