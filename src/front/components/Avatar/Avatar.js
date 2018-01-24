@@ -22,7 +22,10 @@ export const Avatar: ComponentType<{
   defaultUrl?: string,
   onError?: Function,
 }> = compose(
-  defaultProps({ defaultUrl: defaultImage }),
+  defaultProps({
+    url: defaultImage,
+    defaultUrl: defaultImage,
+  }),
   withStateHandlers(props => ({
     src: props.url,
   }), {
