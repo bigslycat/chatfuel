@@ -2,12 +2,16 @@
 
 import { type ComponentType } from 'react'
 
+import omit from 'ramda/src/omit'
 import styled from 'styled-jss'
+import MUIAvatar from 'material-ui/Avatar'
 
 /* :: declare var lifecycle: (Object) => <V>(V) => V */
 
 import {
   compose,
+  pure,
+  mapProps,
   withStateHandlers,
   defaultProps,
   // $FlowFixMe
@@ -22,6 +26,7 @@ export const Avatar: ComponentType<{
   defaultUrl?: string,
   onError?: Function,
 }> = compose(
+  pure,
   defaultProps({
     url: defaultImage,
     defaultUrl: defaultImage,
@@ -40,7 +45,9 @@ export const Avatar: ComponentType<{
       if (url !== this.props.url) setUrl(url)
     },
   }),
-)(styled('img')({
-  margin: 0,
-  padding: 0,
+  mapProps(omit(['setUrl', 'defaultUrl'])),
+)(styled(MUIAvatar)({
+  width: 48,
+  height: 48,
+  background: '#eee',
 }))
