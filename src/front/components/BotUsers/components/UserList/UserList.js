@@ -9,7 +9,9 @@ import {
   defaultProps,
 } from 'recompose'
 
-import List, { ListItem, ListItemText } from 'material-ui/List'
+import List from 'material-ui/List/List'
+import ListItem from 'material-ui/List/ListItem'
+import ListItemText from 'material-ui/List/ListItemText'
 
 import type { User as UserType } from '../../api'
 
@@ -41,7 +43,7 @@ export const UserList: ComponentType<Props> =
       children: (
         <Fragment>
           {users}
-          <Loader display={loading} overlay />
+          <Loader show={loading} overlay />
         </Fragment>
       ),
     })),

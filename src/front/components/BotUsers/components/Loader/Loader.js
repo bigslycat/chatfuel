@@ -9,11 +9,11 @@ import {
   withProps,
 } from 'recompose'
 
-import { CircularProgress } from 'material-ui/Progress'
+import CircularProgress from 'material-ui/Progress/CircularProgress'
 
 type Props = {
   overlay?: bool,
-  display?: bool,
+  show?: bool,
 }
 
 const WithOverlay = withProps({
@@ -25,13 +25,13 @@ const WithOverlay = withProps({
   left: 0,
   right: 0,
   background: 'rgba(255, 255, 255, 0.5)',
-  display: (props: Props) => (props.display ? 'flex' : 'none'),
+  display: (props: Props) => (props.show ? 'flex' : 'none'),
   alignItems: 'center',
   justifyContent: 'center',
 }))
 
 const WithoutOverlay = styled(CircularProgress)({
-  display: (props: Props) => (props.display ? 'inline-block' : 'none'),
+  display: (props: Props) => (props.show ? 'inline-block' : 'none'),
 })
 
 export const Loader: ComponentType<Props> =

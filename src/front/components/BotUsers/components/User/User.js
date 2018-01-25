@@ -7,7 +7,9 @@ import {
   mapProps,
 } from 'recompose'
 
-import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
+import ListItem from 'material-ui/List/ListItem'
+import ListItemIcon from 'material-ui/List/ListItemIcon'
+import ListItemText from 'material-ui/List/ListItemText'
 
 import type { User as UserType } from '../../api'
 

@@ -1,15 +1,30 @@
 /* @flow */
 
 import React, { Fragment, type ComponentType } from 'react'
-// import { SyntheticInputEvent } from 'react-dom'
-import { Observable, ConnectableObservable, Subject } from 'rxjs'
 import styled from 'styled-jss'
+
+/* :: import { ConnectableObservable } from 'rxjs' */
+import { Subject } from 'rxjs/Subject'
+import { Observable } from 'rxjs/Observable'
+
+import 'rxjs/add/observable/from'
+import 'rxjs/add/observable/of'
+import 'rxjs/add/observable/merge'
+import 'rxjs/add/observable/combineLatest'
+
+import 'rxjs/add/operator/do'
+import 'rxjs/add/operator/filter'
+import 'rxjs/add/operator/mergeMap'
+import 'rxjs/add/operator/debounceTime'
+import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/publish'
+import 'rxjs/add/operator/startWith'
 
 /* :: declare var lifecycle: (Object) => <V>(V) => V */
 
 import {
   compose,
-  withProps,
+  mapProps,
   // $FlowFixMe
   lifecycle,
   mapPropsStream,
@@ -17,11 +32,14 @@ import {
   setObservableConfig,
 } from 'recompose'
 
-import rxjsconfig from 'recompose/rxjsObservableConfig'
+import omit from 'ramda/src/omit'
 
-import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card'
+import Card from 'material-ui/Card/Card'
+import CardHeader from 'material-ui/Card/CardHeader'
+import CardContent from 'material-ui/Card/CardContent'
+import CardActions from 'material-ui/Card/CardActions'
 import TextField from 'material-ui/TextField'
-import Button from 'material-ui/Button'
+import Button from 'material-ui/Button/Button'
 
 import {
   client,
@@ -47,7 +65,10 @@ const Actions = withProps(({ goBack, goNext }) => ({
   ),
 }))
 
-setObservableConfig(rxjsconfig)
+setObservableConfig({
+  fromESObservable: Observable.from,
+  toESObservable: stream => stream,
+})
 
 type DataStatus = 'mounted' | 'loading' | 'loaded' | 'fail'
 

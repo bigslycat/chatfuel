@@ -4,7 +4,7 @@ import { type ComponentType } from 'react'
 
 import omit from 'ramda/src/omit'
 import styled from 'styled-jss'
-import MUIAvatar from 'material-ui/Avatar'
+import MUIAvatar from 'material-ui/Avatar/Avatar'
 
 /* :: declare var lifecycle: (Object) => <V>(V) => V */
 
