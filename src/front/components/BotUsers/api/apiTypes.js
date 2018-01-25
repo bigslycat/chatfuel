@@ -1,5 +1,9 @@
 /* @flow */
 
+import type { $AxiosXHR } from 'axios'
+
+export type { $AxiosXHR }
+
 export type APIResponse<T> = {
   result: T,
   nextPageUrl?: string,
