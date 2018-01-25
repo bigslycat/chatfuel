@@ -51,19 +51,29 @@ import {
 
 import { UserList } from './components/UserList'
 
-const Actions = withProps(({ goBack, goNext }) => ({
+const omitProps = compose(mapProps, omit)
+
+const CardActionsStyled = styled(omitProps([
+  'goBack',
+  'goNext',
+])(CardActions))({
+  display: 'flex',
+  justifyContent: ({ goBack, goNext }) => (
+    !goBack && goNext ? 'flex-end' : 'space-between'
+  ),
+})
+
+const Actions = mapProps(({ goBack, goNext, ...props }) => ({
+  ...props,
+  goBack,
+  goNext,
   children: (
     <Fragment>
       {goBack && <Button onClick={goBack}>Previous page</Button>}
       {goNext && <Button onClick={goNext}>Next page</Button>}
     </Fragment>
   ),
-}))(styled(CardActions)({
-  display: 'flex',
-  justifyContent: ({ goBack, goNext }) => (
-    !goBack && goNext ? 'flex-end' : 'space-between'
-  ),
-}))
+}))(CardActionsStyled)
 
 setObservableConfig({
   fromESObservable: Observable.from,
