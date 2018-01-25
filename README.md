@@ -36,7 +36,7 @@ API_URL=//example.com/api/... yarn build
   Почему-то на этот раз на GitHub Pages какие-то проблемы с `index.html`,
   поэтому приходится обращаться к нему явно.
 
-- Debounce запросов в полторы секунды обусловлены ограничениями SwaggerHub.
+- Debounce запросов в полторы секунды обусловлен ограничениями SwaggerHub.
 
 - По дизайну и размеру бандла сильно не упарывался, поэтому взял [material-ui](https://github.com/mui-org/material-ui).
 
