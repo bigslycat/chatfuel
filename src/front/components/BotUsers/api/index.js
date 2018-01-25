@@ -2,15 +2,20 @@
 
 /* eslint-env node */
 
-import axios, { type AxiosPromise } from 'axios'
+import { create, type AxiosPromise } from 'axios'
 
 import type {
   APIResponse,
   User,
 } from './apiTypes'
 
-export const client = axios.create({
-  baseURL: process.env.API_URL || '//virtserver.swaggerhub.com/bigslycat/chatfuel/1.0.0',
+export * from './apiTypes'
+
+export const client = create({
+  headers: {
+    Accept: 'application/json',
+  },
+  baseURL: process.env.API_URL || '//virtserver.swaggerhub.com/bigslycat/chatfuel/1.0.0/api',
 })
 
 type Get<T> = (
@@ -27,24 +32,19 @@ type Params = {
   name?: string,
 }
 
-const defaultLimit = 25
-
 const getUsers: Get<User> = (...args): any => {
   if (typeof args[0] === 'string') return client.get(`users/${args[0]}`)
 
   const [terms] = args
 
-  const [limit, offset]: [number | void, number | void] =
+  const [limit = 25, offset = 0]: [number | void, number | void] =
     (args: any).filter(arg => typeof arg === 'number')
 
-  const params: Params = {
-    limit: limit || defaultLimit,
-  }
+  const params: Params = { limit, offset }
 
-  if (offset != null) params.offset = offset
   if (typeof terms === 'object' && terms.name) params.name = terms.name
 
-  return axios.get('users', { params })
+  return client.get('users', { params })
 }
 
 
