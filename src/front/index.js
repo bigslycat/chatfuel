@@ -3,8 +3,10 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import { BotUsers } from './components/BotUsers'
+
 render(
-  <div>OLOLO</div>,
+  <BotUsers />,
   (document.getElementById('root'): any),
 )
 
