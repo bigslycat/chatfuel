@@ -15,7 +15,7 @@ export const client = create({
   headers: {
     Accept: 'application/json',
   },
-  baseURL: process.env.API_URL || '//virtserver.swaggerhub.com/bigslycat/chatfuel/1.0.0/api',
+  baseURL: (process.env.API_URL: any),
 })
 
 type Get<T> = (
