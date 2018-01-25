@@ -18,6 +18,8 @@ const {
   devServer,
 } = require('webpack-blocks')
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
 const babelPreset = require('./src/config/webpack/babelPreset')
 const htmlPlugin = require('./src/config/webpack/htmlPlugin')
 const clean = require('./src/config/webpack/clean')
@@ -31,7 +33,7 @@ module.exports = createConfig([
   entryPoint({ main: './index.js' }),
 
   setOutput({
-    path: resolve(__dirname, 'build'),
+    path: resolve(__dirname, 'docs'),
     filename: '[name].[hash].bundle.js',
   }),
 
@@ -49,7 +51,6 @@ module.exports = createConfig([
     query: {
       babelrc: false,
       plugins: [
-        'ramda',
         '@babel/plugin-proposal-object-rest-spread',
       ],
       presets: [
@@ -89,7 +90,7 @@ module.exports = createConfig([
     }),
   ]),
 
-  clean(['build']),
+  clean(['docs']),
 
   env('production', [
     uglify(),
