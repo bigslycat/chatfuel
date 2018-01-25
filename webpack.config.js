@@ -10,6 +10,7 @@ const {
   setOutput,
   setContext,
   setDevTool,
+  setEnv,
 
   file,
   match,
@@ -49,6 +50,7 @@ module.exports = createConfig([
       babelrc: false,
       plugins: [
         'ramda',
+        '@babel/plugin-proposal-object-rest-spread',
       ],
       presets: [
         '@babel/flow',
@@ -72,10 +74,15 @@ module.exports = createConfig([
     template: './index.html',
   }),
 
+  setEnv({
+    NODE_ENV: process.env.NODE_ENV,
+    API_URL: process.env.API_URL || '//virtserver.swaggerhub.com/bigslycat/chatfuel/1.0.0/api',
+  }),
+
   env('development', [
     devServer({
       contentBase: resolve(src, 'static'),
-      historyApiFallback: true,
+      historyApiFallback: false,
       hot: true,
       port: 5000,
       overlay: true,
