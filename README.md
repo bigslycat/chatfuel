@@ -1,5 +1,7 @@
 # Chatfuel challenge
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bigslycat/chatfuel.svg)](https://greenkeeper.io/)
+
 ## Requirements
 
 - node — `>=8.0.0`
